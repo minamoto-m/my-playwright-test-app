@@ -44,3 +44,30 @@ npm run dev
 ```bash
 npx playwright test
 ```
+
+## テスト内容について
+
+### クロスブラウザーテスト
+
+以下3つの環境でテストが走ります。
+- Chromium
+- WebKit
+- Firefox
+
+ChromiumはGoogle ChromeやMicrosoft Edgeで使用されており、WebKitはSafariで使用されています。Firefoxは独自のエンジンを持っています。これらのブラウザをカバーすることで、ほとんどのユーザーに対応できます。
+
+### ヘッドフルモード
+playwright.config.tsに以下を追加することで、テスト実行時に実際のブラウザの挙動を見ることができます。
+
+```typescript
+use: {
+    headless: false, // ヘッドフルモードで実行
+}
+```
+
+### レコーディング・コード生成
+以下のコマンドを叩くことでブラウザの操作を記録し、テストコードを生成します。
+
+```bash
+npx playwright codegen
+```
